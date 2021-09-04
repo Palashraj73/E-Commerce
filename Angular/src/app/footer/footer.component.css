@@ -1,0 +1,28 @@
+
+.footer{
+    height: 50px;
+    position: fixed;
+    left:0;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center; 
+    box-shadow: 0 0 8px green;
+    background-color: #485461;
+    background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+    
+}
+.main{
+    display:flex;
+    justify-content: center;
+}
+.main p, .main a{
+    padding: 2px;
+}
+p{
+    color:#fff;
+}
+a{
+    text-decoration: none;
+    color: dodgerblue;
+}

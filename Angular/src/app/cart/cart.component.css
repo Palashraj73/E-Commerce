@@ -1,0 +1,15 @@
+.container{
+    padding:22px 130px 22px;
+    margin-bottom: 40px;
+}
+img{
+    height: 200px;
+    padding: 15px 25px; 
+}
+/* .footer{
+    display: flex;
+}
+.footer p{
+    margin: 0 auto;
+    font-size: 18px;
+} */

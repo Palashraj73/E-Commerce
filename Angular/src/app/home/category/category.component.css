@@ -1,0 +1,26 @@
+.links{
+    justify-content: center;
+    padding: 22px;
+    display: flex;
+}
+
+.linking{
+    display: flex;
+    margin: 0 10px 0 10px;
+    width: 122px;
+    box-shadow: 0 0 5px  grey;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.reference {
+    color: black;
+    margin: 0 auto;
+    text-decoration: none;
+}
+.reference:hover{
+    color: #fff;
+}
+.linking:hover{
+    background-color:dodgerblue;
+}

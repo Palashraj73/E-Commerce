@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+<app-category></app-category>
+<div class="container">
+
+    <div class="card mb-3" style="max-width: 1040px;" *ngFor="let get of getting" >
+        <div class="row g-0" *ngIf="get">
+            <div class="col-md-4">
+                <img src="{{get.product_image}}" alt="{{get.product_name}}">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 #name class="card-title">{{get.product_name}} </h5>
+                    <h6 #price class="price">₨ {{get.product_price}}</h6>
+                    <p   class="card-text">{{get.product_description}} </p>
+                    <div class="footer">
+                        <p class="card-text"><small class="text-muted">Rating : {{get.product_rating}} </small></p>
+                        <p class="card-text"><small class="text-muted">Reviews: {{get.total_product_reviews}}</small></p>
+                        <button type="submit" class="btn btn-outline-warning" >Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

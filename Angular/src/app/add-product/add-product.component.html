@@ -1,0 +1,135 @@
+<app-navbar></app-navbar>
+<div class="container">
+  
+  <form class="was-validated" (ngSubmit)="onSubmit()" #f="ngForm">
+    <!-- product Image -->
+    <div class="image">
+      <input ngModel name="image" #image="ngModel" accept="image/*" (change)="onChange($event)" type="file" class="form-control" aria-label="file example" required>
+      <div class="buttons">
+        <button id="uploadBtn" (click)="onUpload()" class="btn btn-success">Upload</button>
+      </div>
+      
+      <!-- Shareable short link of  uoloaded file -->
+      <div class="container text-center jumbotron"
+      *ngIf="shortLink">
+      <h2> Visit Here</h2>
+      <a href="{{shortLink}}">{{shortLink}}</a>
+    </div>
+    
+    <!--Flag variable is used here-->
+    <div class="container" style="width: 200px; height: 100px;" *ngIf="loading">
+      <h3>Loading ...</h3>
+    </div>
+    
+    
+    <div *ngIf="image.touched && !image.valid" class="invalid-feedback">please upload an image</div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <!-- Product Name -->
+      <div class="form-floating">
+        <input ngModel name="productName" #productName="ngModel" type="text" class="form-control" placeholder="Product name" id="floatingInput" required>
+        <label for="floatingInput">Product Name</label>
+        <div *ngIf="productName.touched && !productName.valid" class="invalid-feedback">
+          Please enter a valid Product Name
+        </div>
+      </div> 
+    </div>
+    <!-- Product Category -->
+    <div class="col">
+      <div class="form-floating">
+        <select ngModel name="category" type="text" #productCategory="ngModel"class="form-select" id="floatingSelect" aria-label="Category" required>
+          <option value="Mobiles">Mobiles</option>
+          <option value="Laptops">Laptops</option>
+          <option value="Gadgets">Gadgets</option>
+        </select>
+        <label for="floatingSelect">Product Category</label>
+        <div *ngIf="productCategory.touched &&! productCategory.valid" class="invalid-feedback">
+          Please enter a valid Product Category
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Product Price -->
+  <div class="row">
+    <div class="col">
+      <div class="form-floating">
+        <input ngModel name="productPrice" #productPrice="ngModel" type="number" class="form-control" placeholder="Product Price" id="floatingInput" required>
+        <label for="floatingInput">Product Price in Rs</label>
+        <div *ngIf="!productPrice.valid && productPrice.touched" class="invalid-feedback">
+          Please enter a valid Product Price
+        </div>
+      </div> 
+    </div>
+    <!-- Product Rating -->
+    <div class="col">
+      <div class="form-floating">
+        <select ngModel name="productRating" type="text" #productrating="ngModel"class="form-select" id="floatingSelect" aria-label="Select" required>
+          <option value="⭐️"> ⭐️</option>
+          <option value="⭐️⭐️"> ⭐️⭐️</option>
+          <option value="⭐️⭐️⭐️"> ⭐️⭐️⭐️</option>
+          <option value="⭐️⭐️⭐️⭐️"> ⭐️⭐️⭐️⭐️</option>
+          <option value="⭐️⭐️⭐️⭐️⭐️"> ⭐️⭐️⭐️⭐️⭐️</option>
+          <!-- <option value="1"> ⭐️</option>
+            <option value="2"> ⭐️⭐️</option>
+            <option value="3"> ⭐️⭐️⭐️</option>
+            <option value="4"> ⭐️⭐️⭐️⭐️</option>
+            <option value="5"> ⭐️⭐️⭐️⭐️⭐️</option> -->
+          </select>
+          <label for="floatingSelect">Product Ratings</label>
+          <div *ngIf="!productPrice.valid && productPrice.touched" class="invalid-feedback">
+            Please enter a valid Product Ratings
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Total Product Bought -->
+    <div class="row">
+      <div class="col">
+        <div class="form-floating">
+          <input ngModel name="totalProductBought" #totalProductBought="ngModel" type="number" class="form-control" placeholder="Product bought" id="floatingInput" required>
+          <label for="floatingInput"> Total Product Bought</label>
+          <div *ngIf="!totalProductBought.valid && totalProductBought.touched"class="invalid-feedback">
+            Please enter a valid Total Product Bought
+          </div>
+        </div> 
+      </div>
+      <!-- Total reviews -->
+      <div class="col">
+        <div class="form-floating">
+          <input ngModel name="totalReviews" #totalReviews="ngModel" type="text" class="form-control" placeholder="Total Product Reviews" id="floatingInput" required>
+          <label for="floatingInput"> Total Product Reviews</label>
+          <div *ngIf="!totalReviews.valid && totalReviews.touched" class="invalid-feedback">
+            Please enter a valid Product Reviews
+          </div>
+        </div> 
+      </div>
+    </div>
+    <!-- Description -->
+    <div class="description">
+      <div class="form-floating">
+        <textarea ngModel name="description" #description="ngModel" class="form-control" placeholder="Leave a product description here" id="floatingTextarea2" style="height: 100px" required></textarea>
+        <label for="floatingTextarea2">Product Description</label>
+        <div *ngIf="!description.valid && description.touched" class="invalid-feedback">
+          Please enter a valid Product Description
+        </div>
+      </div>
+    </div>
+    <!-- Submit Button -->
+    <div class="buttons">
+      <button [disabled]="!f.valid" type="submit" class="btn btn-primary" 
+      (click)="onClick(
+      image.value,
+      productName.value,
+      productCategory.value,
+      productPrice.value,
+      productrating.value,
+      totalProductBought.value,
+      totalReviews.value,
+      description.value
+      )">Add Product</button>
+    </div>
+  </form>
+</div>
+
+<app-footer></app-footer>
